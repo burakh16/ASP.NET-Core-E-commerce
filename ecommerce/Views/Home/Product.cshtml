@@ -1,0 +1,123 @@
+﻿@model ecommerce.Models.ViewModels.ProductCategoryViewModel
+@{
+    ViewData["Title"] = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/QtyInput.css" rel="stylesheet" />
+
+@Html.Partial("Categories", Model.Categories)
+
+<main class="">
+    <div class="container dark-grey-text">
+        <hr>
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+
+                <img src="~/@Model.Product.Image" class="img-fluid" alt="">
+
+            </div>
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <!--Content-->
+                <div class="p-4">
+
+                    <div class="mb-3">
+                        <a asp-action="Index" asp-route-category="@Model.Product.SubCategory.Name">
+                            <span class="badge purple mr-1">@Model.Product.SubCategory.Name</span>
+                        </a>
+                        <a href="">
+                            <span class="badge blue mr-1">New</span>
+                        </a>
+                        <a href="">
+                            <span class="badge red mr-1">Bestseller</span>
+                        </a>
+                    </div>
+
+
+
+                    <p class="lead">
+
+                        <span>$@Model.Product.Price</span>
+                    </p>
+
+                    <p class="lead font-weight-bold">Description</p>
+
+                    <p>
+                        @Model.Product.Description
+                    </p>
+                    <div class="row">
+
+                        <div class="def-number-input number-input safari_only  my-0 p h-25">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                            <input class="quantity" min="1" name="quantity" value="1" type="number">
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                        </div>
+
+                        <div class="btn btn-primary btn-md my-0 p h-25" onclick="ajaxCall('@Model.Product.Id')">
+                            <i class="fas fa-shopping-cart ml-1"></i>
+                            Add to cart
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- Default input -->
+
+
+                </div>
+                <!--Content-->
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+        <hr>
+
+
+
+
+    </div>
+</main>
+<!--Main layout-->
+
+@section AJAX
+{
+    <script>
+
+        function ajaxCall(guid) {
+            let cart = {
+                "ProductId": "@Model.Product.Id",
+                "Quantity": $(".quantity").val()
+            };
+
+            $.ajax({
+                url: "Home/addCard",
+                type: "POST",
+
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify(cart),
+
+
+                success: function(data) {
+                    console.log(data);
+                    $("#cartCount").text(data);
+                },
+
+                error: function(error) {
+                    return error;
+                    console.log(error);
+                }
+            });
+        }
+
+
+    </script>
+}

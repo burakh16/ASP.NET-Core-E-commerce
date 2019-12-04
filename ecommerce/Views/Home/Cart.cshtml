@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ecommerce.Models.ViewModels.CartViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="col-md-12 mt-5">
+@if (Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <div class="container py-3">
+            <div class="card">
+                <div class="row ">
+                    <div class="col-md-3 mt-md-3">
+                        <img src="@item.Product.Image" class="w-100">
+                    </div>
+                    <div class="col-md-4 px-3 mt-md-3">
+                        <div class="card-block px-3">
+                            <a class="card-title" asp-action="Product" asp-route-id="@item.Product.Slug">@item.Product.Title</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 px-3 mt-md-3">
+                        Quantity: @item.Quantity
+                    </div>
+                    <div class="col-md-2 px-3 mt-md-1">
+                        <a class="btn btn-outline-danger" asp-action="RemoveFromCart" asp-route-id="@item.Product.Id">Delete</a>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    }
+}
+else
+{
+    <p>Your Cart is Empty</p>
+}
+    </div>

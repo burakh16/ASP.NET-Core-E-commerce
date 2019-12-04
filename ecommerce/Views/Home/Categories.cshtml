@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ecommerce.Models.Category>
+@{
+    Layout = null;
+}
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5 col-lg-12">
+
+    <!-- Navbar brand -->
+    <span class="navbar-brand">Categories:</span>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" asp-action="Index">
+                    All
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            @foreach (var item in Model)
+            {
+                if (item.SubCategories.Count > 1)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @item.Name
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach (var subItem in item.SubCategories.OrderBy(x=>x.Position))
+                            {
+                                <a class="dropdown-item" asp-action="Index" asp-route-category="@subItem.Name">@subItem.Name</a>
+                            }
+
+                        </div>
+                    </li>
+                }
+             
+            }
+
+        </ul>
+        <!-- Links -->
+
+        <form class="form-inline">
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </div>
+        </form>
+    </div>
+    <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->

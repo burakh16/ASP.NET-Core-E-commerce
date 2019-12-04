@@ -1,0 +1,55 @@
+﻿@model ecommerce.Models.ViewModels.ProductCategoryViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@Html.Partial("Categories", Model.Categories)
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.Products)
+        {
+            <div class="col-lg-3 col-md-6 mb-4">
+
+            <!--Card-->
+            <a asp-action="Product" asp-route-id="@item.Slug">
+            <div class="card">
+
+                <!--Card image-->
+                  
+                <div class="view overlay">
+                    <img src="@item.Image" class="card-img-top" alt="">
+                     
+                    <div class="mask rgba-white-slight"></div>
+                    
+                </div>
+                  
+                <!--Card image-->
+                <!--Card content-->
+                <div class="card-body text-center">
+                    <!--Category & Title-->
+
+
+                    <h5>@item.Title</h5>
+
+                 
+                    <h4 class="font-weight-bold blue-text">
+                        <strong>@item.Price$</strong>
+                    </h4>
+
+                </div>
+                <!--Card content-->
+
+            </div>
+            </a>
+                <!--Card-->
+
+            </div>
+            <!--Grid column-->
+        }
+
+
+
+    </div>
+</div>

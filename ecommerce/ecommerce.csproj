@@ -1,0 +1,117 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-ecommerce-B81C9515-2846-441D-855F-4DD10624B5F7</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="testtt\**" />
+    <Content Remove="testtt\**" />
+    <EmbeddedResource Remove="testtt\**" />
+    <None Remove="testtt\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Static\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="wwwroot\font\roboto\Roboto-Bold.woff2" />
+    <None Include="wwwroot\font\roboto\Roboto-Light.woff2" />
+    <None Include="wwwroot\font\roboto\Roboto-Medium.woff2" />
+    <None Include="wwwroot\font\roboto\Roboto-Regular.woff2" />
+    <None Include="wwwroot\font\roboto\Roboto-Thin.woff2" />
+    <None Include="wwwroot\img\lightbox\default-skin.svg" />
+    <None Include="wwwroot\img\svg\arrow_left.svg" />
+    <None Include="wwwroot\img\svg\arrow_right.svg" />
+    <None Include="wwwroot\js\addons\datatables-select.js" />
+    <None Include="wwwroot\js\addons\datatables-select.min.js" />
+    <None Include="wwwroot\js\addons\datatables.js" />
+    <None Include="wwwroot\js\addons\datatables.min.js" />
+    <None Include="wwwroot\js\addons\imagesloaded.pkgd.min.js" />
+    <None Include="wwwroot\js\addons\jquery.zmd.hierarchical-display.js" />
+    <None Include="wwwroot\js\addons\jquery.zmd.hierarchical-display.min.js" />
+    <None Include="wwwroot\js\addons\masonry.pkgd.min.js" />
+    <None Include="wwwroot\js\addons\progressBar.js" />
+    <None Include="wwwroot\js\addons\progressBar.min.js" />
+    <None Include="wwwroot\js\addons\rating.js" />
+    <None Include="wwwroot\js\addons\rating.min.js" />
+    <None Include="wwwroot\js\bootstrap.js" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\jquery-3.4.1.min.js" />
+    <None Include="wwwroot\js\mdb.js" />
+    <None Include="wwwroot\js\mdb.min.js" />
+    <None Include="wwwroot\js\modules\bs-custom-file-input.js" />
+    <None Include="wwwroot\js\modules\chart.js" />
+    <None Include="wwwroot\js\modules\default-file-input.js" />
+    <None Include="wwwroot\js\modules\enhanced-modals.js" />
+    <None Include="wwwroot\js\modules\forms-free.js" />
+    <None Include="wwwroot\js\modules\jquery.easing.js" />
+    <None Include="wwwroot\js\modules\scrolling-navbar.js" />
+    <None Include="wwwroot\js\modules\treeview.js" />
+    <None Include="wwwroot\js\modules\velocity.js" />
+    <None Include="wwwroot\js\modules\velocity.min.js" />
+    <None Include="wwwroot\js\modules\waves.js" />
+    <None Include="wwwroot\js\modules\wow.js" />
+    <None Include="wwwroot\js\popper.min.js" />
+    <None Include="wwwroot\scss\addons\_datatables-select.scss" />
+    <None Include="wwwroot\scss\addons\_datatables.scss" />
+    <None Include="wwwroot\scss\addons\_directives.scss" />
+    <None Include="wwwroot\scss\addons\_flags.scss" />
+    <None Include="wwwroot\scss\addons\_hierarchical-display.scss" />
+    <None Include="wwwroot\scss\addons\_rating.scss" />
+    <None Include="wwwroot\scss\core\bootstrap\_functions.scss" />
+    <None Include="wwwroot\scss\core\bootstrap\_rfs.scss" />
+    <None Include="wwwroot\scss\core\bootstrap\_variables.scss" />
+    <None Include="wwwroot\scss\core\_colors.scss" />
+    <None Include="wwwroot\scss\core\_global.scss" />
+    <None Include="wwwroot\scss\core\_helpers.scss" />
+    <None Include="wwwroot\scss\core\_masks.scss" />
+    <None Include="wwwroot\scss\core\_mixins.scss" />
+    <None Include="wwwroot\scss\core\_typography.scss" />
+    <None Include="wwwroot\scss\core\_variables.scss" />
+    <None Include="wwwroot\scss\core\_waves.scss" />
+    <None Include="wwwroot\scss\free\modules\animations-extended\animations-extended.scss" />
+    <None Include="wwwroot\scss\free\modules\animations-extended\_module.scss" />
+    <None Include="wwwroot\scss\free\_animations-basic.scss" />
+    <None Include="wwwroot\scss\free\_badges.scss" />
+    <None Include="wwwroot\scss\free\_buttons.scss" />
+    <None Include="wwwroot\scss\free\_cards.scss" />
+    <None Include="wwwroot\scss\free\_carousels.scss" />
+    <None Include="wwwroot\scss\free\_depreciated.scss" />
+    <None Include="wwwroot\scss\free\_dropdowns.scss" />
+    <None Include="wwwroot\scss\free\_footers.scss" />
+    <None Include="wwwroot\scss\free\_forms.scss" />
+    <None Include="wwwroot\scss\free\_input-group.scss" />
+    <None Include="wwwroot\scss\free\_list-group.scss" />
+    <None Include="wwwroot\scss\free\_loader.scss" />
+    <None Include="wwwroot\scss\free\_modals.scss" />
+    <None Include="wwwroot\scss\free\_msc.scss" />
+    <None Include="wwwroot\scss\free\_navbars.scss" />
+    <None Include="wwwroot\scss\free\_pagination.scss" />
+    <None Include="wwwroot\scss\free\_steppers.scss" />
+    <None Include="wwwroot\scss\free\_switch.scss" />
+    <None Include="wwwroot\scss\free\_tables.scss" />
+    <None Include="wwwroot\scss\free\_treeview.scss" />
+    <None Include="wwwroot\scss\mdb.lite.scss" />
+    <None Include="wwwroot\scss\mdb.scss" />
+    <None Include="wwwroot\scss\style.scss" />
+    <None Include="wwwroot\scss\_custom-skin.scss" />
+    <None Include="wwwroot\scss\_custom-styles.scss" />
+    <None Include="wwwroot\scss\_custom-variables.scss" />
+  </ItemGroup>
+
+</Project>

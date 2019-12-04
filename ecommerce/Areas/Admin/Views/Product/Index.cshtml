@@ -1,0 +1,120 @@
+﻿@model IEnumerable<ecommerce.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Product List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-deep-purple">Create New</a>
+</p>
+<table id="myTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th class="font-weight-bold">
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th class="font-weight-bold">
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th class="font-weight-bold">
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th class="font-weight-bold">
+            @Html.DisplayNameFor(model => model.GroupCode)
+        </th>
+        <th class="font-weight-bold">
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th class="font-weight-bold">
+            @Html.DisplayNameFor(model => model.Featured)
+        </th>
+
+        <th class="font-weight-bold">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th class="font-weight-bold">
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th class="font-weight-bold">
+            @Html.DisplayNameFor(model => model.SubCategory)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="font-weight-bold">
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </a>
+            </td>
+
+            <td>
+                @if (item.Description.Length > 25)
+                {
+                    @Html.DisplayFor(modelItem => item.Description).ToString().Substring(0, 25)
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.Description)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td class="text-center">
+                @if (item.Featured)
+                {
+                    <i class="fas fa-check"></i>
+                }
+                else
+                {
+                    <i class="fas fa-times"></i>
+                }
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)$
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SubCategory.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-cyan">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-deep-purple">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-elegant" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+@section JS
+{
+    <link href="~/css/addons/datatables.min.css" rel="stylesheet">
+
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="~/js/addons/datatables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+}
